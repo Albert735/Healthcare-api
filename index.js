@@ -1,6 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const patientRoutes = require('./routes/Patient');
+const encounterRoutes = require('./routes/Encounter');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -18,7 +20,8 @@ db.once('open', () => {
 app.use(bodyParser.json());
 
 // Routes
-// Define your routes here
+const patientRoutes = require('./routes/Patient');
+const encounterRoutes = require('./routes/Encounter');
 
 // Start the server
 app.listen(PORT, () => {
