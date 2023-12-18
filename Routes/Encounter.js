@@ -5,14 +5,22 @@ const Encounter = require('../models/encounter');
 
 // Start a new encounter
 router.post('/encounters', async (req, res) => {
-  try {
-    const encounter = new Encounter(req.body);
-    await encounter.save();
-    res.status(201).json(encounter);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-});
+    try {
+      const { patientID, date, time, type } = req.body;
+  
+      const encounter = new Encounter({
+        patientID,
+        date,
+        time,
+        type,
+      });
+  
+      await encounter.save();
+      res.status(201).json(encounter);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  });
 
 // Get all encounters
 router.get('/encounters', async (req, res) => {
