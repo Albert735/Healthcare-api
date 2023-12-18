@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const patientRoutes = require('./routes/Patient');
+const patientRoutes = require('./Routes/Patient');
 const encounterRoutes = require('./routes/Encounter');
 
 const app = express();
@@ -20,8 +20,8 @@ db.once('open', () => {
 app.use(bodyParser.json());
 
 // Routes
-const patientRoutes = require('./routes/Patient');
-const encounterRoutes = require('./routes/Encounter');
+const patientRoutes = require('./Routes/Patient');
+const encounterRoutes = require('./Routes/Encounter');
 
 // Start the server
 app.listen(PORT, () => {
